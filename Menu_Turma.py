@@ -22,10 +22,13 @@ def f_remover_aluno ():
         if nome_remover_aluno == "":
             break
         else:
-            for i in range (0,len(ALUNOS_SEM_CLASS)):
+            QuantidadesAlunos = len (ALUNOS_SEM_CLASS)
+            for i in range (0,QuantidadesAlunos):
                 if nome_remover_aluno == str((ALUNOS_SEM_CLASS[i])):
                     ALUNOS.pop(i)
-                    ALUNOS_SEM_CLASS.pop(i)
+            for g in range (0,QuantidadesAlunos):
+                if nome_remover_aluno == str(ALUNOS_SEM_CLASS[g]):
+                    ALUNOS_SEM_CLASS.pop(g)
                     break
 
 def f_adicionar_alunonota ():
@@ -38,9 +41,8 @@ def f_adicionar_alunonota ():
             break
         else:
             for i in range (0,len(ALUNOS_SEM_CLASS)):
-                if nome_aluno_pela_nota == str((ALUNOS_SEM_CLASS[i])):
+                if nome_aluno_pela_nota == str((ALUNOS[i].name)):
                     ALUNOS[i].nota = nota_do_aluno
-                    print("a")
                     break
 
 def f_adicionar_professor ():
@@ -52,18 +54,26 @@ def f_adicionar_professor ():
             PROFESSOR.name = nome_professor
 
 def f_alunos_ordem_alfabetica ():
+    ALUNOS_SEM_CLASS_ORDENADOS = []
     ALUNOS_SEM_CLASS_ORDENADOS = ALUNOS_SEM_CLASS
-    ALUNOS_SEM_CLASS_ORDENADOS
+    ALUNOS_SEM_CLASS_ORDENADOS.sort()
     print ("Os alunos são: " )
     for i in range (0,len(ALUNOS_SEM_CLASS_ORDENADOS)):
              print (str(ALUNOS_SEM_CLASS_ORDENADOS[i]))
     print ("O Professor é: ")
     print (str(PROFESSOR.name))
 
+def f_mostrar_alunonota ():
+    for i in range (0,len(ALUNOS_SEM_CLASS)):
+             print (str(ALUNOS[i].name) + " tem nota "+ str (ALUNOS[i].nota) )
+
+
+
+
 def invalid_opt():
   print("Invalid choice")
 
-options_turma = {"A":["Adicionar Aluno",f_adicionar_aluno], "B":["Remover Aluno",f_remover_aluno], "C":["Adiocionar Professor",f_adicionar_professor], "D": ["Listar alunos", f_alunos_ordem_alfabetica], "E": ["Dar nota aos alunos da turma", f_adicionar_alunonota]}
+options_turma = {"A":["Adicionar Aluno",f_adicionar_aluno], "B":["Remover Aluno",f_remover_aluno], "C":["Adiocionar Professor",f_adicionar_professor], "D": ["Listar alunos", f_alunos_ordem_alfabetica], "E": ["Dar nota aos alunos da turma", f_adicionar_alunonota], "F": ["Mostrar as notas dos alunos", f_mostrar_alunonota]}
 
 while True:
     print ("-=-=-=-=-=-=-=-")
