@@ -1,6 +1,6 @@
-from CLASS_Disciplina import Disciplina
 from CLASS_Professor import Professor
 from CLASS_Aluno import Aluno
+from CLASS_Turma import Turma
 
 ALUNOS=[]
 ALUNOS_SEM_CLASS=[]
@@ -24,8 +24,9 @@ def f_remover_aluno ():
         else:
             QuantidadesAlunos = len (ALUNOS_SEM_CLASS)
             for i in range (0,QuantidadesAlunos):
-                if nome_remover_aluno == str((ALUNOS_SEM_CLASS[i])):
+                if nome_remover_aluno == str((ALUNOS[i].name)):
                     ALUNOS.pop(i)
+                    break
             for g in range (0,QuantidadesAlunos):
                 if nome_remover_aluno == str(ALUNOS_SEM_CLASS[g]):
                     ALUNOS_SEM_CLASS.pop(g)
@@ -73,27 +74,33 @@ def f_mostrar_alunonota ():
 def invalid_opt():
   print("Invalid choice")
 
-options_turma = {"A":["Adicionar Aluno",f_adicionar_aluno], "B":["Remover Aluno",f_remover_aluno], "C":["Adiocionar Professor",f_adicionar_professor], "D": ["Listar alunos", f_alunos_ordem_alfabetica], "E": ["Dar nota aos alunos da turma", f_adicionar_alunonota], "F": ["Mostrar as notas dos alunos", f_mostrar_alunonota]}
+def Menu_turma(a):
+     ALUNOS = a.ALUNOS
+     ALUNOS_SEM_CLASS= a.ALUNOS_SEM_CLASS
+     ALUNOS_SEM_CLASS_ORDENADOS= a.ALUNOS_SEM_CLASS_ORDENADOS
+     PROFESSOR= Professor("Sem Professor")
 
-while True:
-    print ("-=-=-=-=-=-=-=-")
-    for option in options_turma:
-         print(option+") "+options_turma.get(option)[0])
-    print ("-=-=-=-=-=-=-=-")
 
-    choise = input("Faça sua escolha: ")
+     options = {"A":["Adicionar Aluno",f_adicionar_aluno], "B":["Remover Aluno",f_remover_aluno], "C":["Adiocionar Professor",f_adicionar_professor], "D": ["Listar alunos", f_alunos_ordem_alfabetica], "E": ["Dar nota aos alunos da turma", f_adicionar_alunonota], "F": ["Mostrar as notas dos alunos", f_mostrar_alunonota]}
+
+     while True:
+         print ("-=-=-=-=-=-=-=-")
+         for option in options:
+              print(option+") "+options.get(option)[0])
+         print ("-=-=-=-=-=-=-=-")
+
+         choise = input("Faça sua escolha: ")
      
-    if choise == "":
-         break
-    else:
-         val = options_turma.get(choise)
-         if val is not None:
-             action = val[1]
+         if choise == "":
+              break
          else:
-            action = invalid_opt
+              val = options.get(choise)
+              if val is not None:
+                  action = val[1]
+              else:
+                 action = invalid_opt
 
-         action()
-
+              action()
 
 
 
