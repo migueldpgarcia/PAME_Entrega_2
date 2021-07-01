@@ -78,7 +78,7 @@ def Menu_turma(a):
      ALUNOS = a.ALUNOS
      ALUNOS_SEM_CLASS= a.ALUNOS_SEM_CLASS
      ALUNOS_SEM_CLASS_ORDENADOS= a.ALUNOS_SEM_CLASS_ORDENADOS
-     PROFESSOR= Professor("Sem Professor")
+     PROFESSOR= a.PROFESSOR
 
 
      options = {"A":["Adicionar Aluno",f_adicionar_aluno], "B":["Remover Aluno",f_remover_aluno], "C":["Adiocionar Professor",f_adicionar_professor], "D": ["Listar alunos", f_alunos_ordem_alfabetica], "E": ["Dar nota aos alunos da turma", f_adicionar_alunonota], "F": ["Mostrar as notas dos alunos", f_mostrar_alunonota]}
@@ -92,6 +92,11 @@ def Menu_turma(a):
          choise = input("Faça sua escolha: ")
      
          if choise == "":
+              a.ALUNOS = ALUNOS
+              a.ALUNOS_SEM_CLASS = ALUNOS_SEM_CLASS
+              a.ALUNOS_SEM_CLASS_ORDENADOS = ALUNOS_SEM_CLASS_ORDENADOS
+              a.PROFESSOR = PROFESSOR
+              
               break
          else:
               val = options.get(choise)
