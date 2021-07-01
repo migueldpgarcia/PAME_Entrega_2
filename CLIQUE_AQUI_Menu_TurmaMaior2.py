@@ -59,7 +59,7 @@ def Menu_Maior():
                      print(option+") "+options_turma.get(option)[0])
              print ("-=-=-=-=-=-=-=-")
 
-             choise = input("Faça sua escolha: ")
+             choise = input("(Enter para fechar) Faça sua escolha: ")
      
              if choise == "":
                  break

@@ -2,11 +2,11 @@ from CLASS_Professor import Professor
 from CLASS_Aluno import Aluno
 
 class Turma:
-    ALUNOS=[]
-    ALUNOS_SEM_CLASS=[]
-    ALUNOS_SEM_CLASS_ORDENADOS=[]
-    PROFESSOR= Professor("Sem Professor")
     def __init__(self, name):
+        self.ALUNOS=[]
+        self.ALUNOS_SEM_CLASS=[]
+        self.ALUNOS_SEM_CLASS_ORDENADOS=[]
+        self.PROFESSOR= Professor("Sem Professor")
         self.name = name
     
     def f_adicionar_aluno (self):
@@ -16,7 +16,7 @@ class Turma:
                 break
             else:
                 a = Aluno(nome_aluno)
-                self.ALUNOS.append (nome_aluno)
+                self.ALUNOS.append (a)
                 self.ALUNOS_SEM_CLASS.append (nome_aluno)
              
 
