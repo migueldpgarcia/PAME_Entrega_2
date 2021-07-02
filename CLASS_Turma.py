@@ -2,6 +2,9 @@ from CLASS_Professor import Professor
 from CLASS_Aluno import Aluno
 
 class Turma:
+    ALUNOSTOTAL=[]
+    PROFESSORES_TOTAL = []
+
     def __init__(self, name):
         self.ALUNOS=[]
         self.ALUNOS_SEM_CLASS=[]
@@ -18,6 +21,7 @@ class Turma:
                 a = Aluno(nome_aluno)
                 self.ALUNOS.append (a)
                 self.ALUNOS_SEM_CLASS.append (nome_aluno)
+                self.ALUNOSTOTAL.append(" "+nome_aluno)
              
 
     def f_remover_aluno (self):
@@ -56,7 +60,9 @@ class Turma:
             if nome_professor == "":
                 break
             else:
-                self.name = nome_professor
+                t = Professor(nome_professor)
+                self.PROFESSOR = t
+                self.PROFESSORES_TOTAL.append(" "+nome_professor)
 
     def f_alunos_ordem_alfabetica (self):
         ALUNOS_SEM_CLASS_ORDENADOS = []
