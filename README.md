@@ -4,6 +4,8 @@ capaz de gerenciar professores, alunos, matérias e suas respectivas turmas.
 
 Trabalho para o PAME, muito feliz de estar passando por esta experiência!
 
+Aluno: Miguel Garcia
+
 
 * Menu Principal
   * Cadastro de uma nova matéria
