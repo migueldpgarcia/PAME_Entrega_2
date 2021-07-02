@@ -78,8 +78,12 @@ def Menu_Maior():
 
 def f_nova_materia():
     g = str(input("(Enter para sair) Digite o nome da materia a ser cadastrada: "))
-    MATERIA_TOTAL.append (g)
+    MATERIA_TOTAL.append (" "+g)
     print ("Materia " +g+ " cadastrada.")
+
+def f_lista_materia():
+    StringMATERIATOTAL = ''.join([str(item) for item in (MATERIA_TOTAL)])
+    print (StringMATERIATOTAL)
 
 def f_cadastro_professor():
 
@@ -107,7 +111,7 @@ def f_lista_cadastro_alunos ():
 
 def Menu_Principal ():
         while True:
-            options_PRINCIPAL = {"A":["Cadastro de uma nova matéria",f_nova_materia], "B":["Cadastro de um novo professor",f_cadastro_professor], "C":["Mostrar todos os professores cadastrados", f_lista_professores], "D":["Mostrar todos os alunos cadastrados", f_lista_cadastro_alunos], "E": ["Abrir Menu de Turmas", Menu_Maior ]}
+            options_PRINCIPAL = {"A":["Cadastro de uma nova matéria",f_nova_materia], "B":["Cadastro de um novo professor",f_cadastro_professor], "C":["Mostrar todos os professores cadastrados", f_lista_professores], "D":["Mostrar todos os alunos cadastrados", f_lista_cadastro_alunos], "E": ["Abrir Menu de Turmas", Menu_Maior ], "F": ["Mostrar todos as matérias cadastradas", f_lista_materia]}
             print ("-=-=-=-=-=-=-=-")
             for option in options_PRINCIPAL:
                 print(option+") "+options_PRINCIPAL.get(option)[0])
