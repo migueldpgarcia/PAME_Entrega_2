@@ -7,7 +7,7 @@ TURMAS = []
 TURMAS_SEM_CLASS = []
 APROFESSORES_TOTAL = Turma
 MATERIA_TOTAL = []
-
+AALUNOS_TOTAL = Turma
 
 
 def f_adicionar_turma ():
@@ -57,7 +57,7 @@ def f_selecionar_turmas ():
 
 def Menu_Maior():
          while True:
-             options_turma = {"A":["Adicionar turma",f_adicionar_turma], "B":["Remover Turma",f_remover_turma], "C":["Listar Turmas", f_listar_turmas], "D":["Selecionar Turmas", f_selecionar_turmas]}
+             options_turma = {"A":["Adicionar turma",f_adicionar_turma], "B":["Remover turma",f_remover_turma], "C":["Listar turmas", f_listar_turmas], "D":["Selecionar turma", f_selecionar_turmas]}
              print ("-=-=-=-=-=-=-=-")
              for option in options_turma:
                      print(option+") "+options_turma.get(option)[0])
@@ -91,19 +91,24 @@ def f_cadastro_professor():
     APROFESSORES_TOTAL.PROFESSORES_TOTAL.append (" "+g)
     print ("Professor " +g+ " cadastrado.")
 
-
-
 def f_lista_professores ():
     StringPROFESSORESTOTAL= ''.join([str(item) for item in (APROFESSORES_TOTAL.PROFESSORES_TOTAL)])
     print ("Os professores são: ")
     print (StringPROFESSORESTOTAL)
 
+def f_cadastrar_novo_aluno():
+    g = str(input("(Enter para sair) Digite o nome do aluno a ser cadastrado: "))
+    AALUNOS_TOTAL.ALUNOSTOTAL.append (" "+g)
+    print ("Aluno " +g+ " cadastrado.")
+
+
 def f_lista_cadastro_alunos ():
-    if len(TURMAS) == 0:
+    if len(AALUNOS_TOTAL.ALUNOSTOTAL) == 0:
         print ("Nao há alunos cadastrados")
     else:
 
-         StringALUNOSTOTAL= ''.join([str(item) for item in (TURMAS[0].ALUNOSTOTAL)])
+         StringALUNOSTOTAL= ''.join([str(item) for item in (AALUNOS_TOTAL.ALUNOSTOTAL)])
+         print ("Os alunos cadastrados são: ")
          print (StringALUNOSTOTAL)
     
    
@@ -111,7 +116,7 @@ def f_lista_cadastro_alunos ():
 
 def Menu_Principal ():
         while True:
-            options_PRINCIPAL = {"A":["Cadastro de uma nova matéria",f_nova_materia], "B":["Cadastro de um novo professor",f_cadastro_professor], "C":["Mostrar todos os professores cadastrados", f_lista_professores], "D":["Mostrar todos os alunos cadastrados", f_lista_cadastro_alunos], "E": ["Abrir Menu de Turmas", Menu_Maior ], "F": ["Mostrar todos as matérias cadastradas", f_lista_materia]}
+            options_PRINCIPAL = {"A":["Cadastro de uma nova matéria",f_nova_materia], "B":["Cadastro de um novo professor",f_cadastro_professor], "C":["Cadastro de um novo aluno", f_cadastrar_novo_aluno], "D":["Mostrar todos as matérias cadastradas", f_lista_materia], "E": ["Mostrar todos os professores cadastrados", f_lista_professores], "F": ["Mostrar todos os alunos cadastrados", f_lista_cadastro_alunos ], "G": ["Abrir Menu de Turmas", Menu_Maior]}
             print ("-=-=-=-=-=-=-=-")
             for option in options_PRINCIPAL:
                 print(option+") "+options_PRINCIPAL.get(option)[0])
